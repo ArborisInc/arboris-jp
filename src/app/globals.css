@@ -1,26 +1,142 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #0d9748;
+  --color-primary-light: #10b858;
+  --color-primary-dark: #0a7a3a;
+  --color-accent: #00e87b;
+  --color-dark: #0a0f1a;
+  --color-dark-light: #111827;
+  --color-dark-card: #151d2e;
+  --color-gray-text: #94a3b8;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-noto-sans-jp);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  background: #0a0f1a;
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* グラデーションテキスト */
+.gradient-text {
+  background: linear-gradient(135deg, #00e87b 0%, #0d9748 50%, #00c9ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* グロー効果 */
+.glow-green {
+  box-shadow: 0 0 20px rgba(0, 232, 123, 0.15), 0 0 60px rgba(0, 232, 123, 0.05);
+}
+
+.glow-green-strong {
+  box-shadow: 0 0 30px rgba(0, 232, 123, 0.25), 0 0 80px rgba(0, 232, 123, 0.1);
+}
+
+/* グリッド背景パターン */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(0, 232, 123, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 232, 123, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* カード */
+.card-dark {
+  background: linear-gradient(135deg, #151d2e 0%, #1a2332 100%);
+  border: 1px solid rgba(0, 232, 123, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card-dark:hover {
+  border-color: rgba(0, 232, 123, 0.3);
+  box-shadow: 0 0 30px rgba(0, 232, 123, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ボタン */
+.btn-primary {
+  background: linear-gradient(135deg, #0d9748 0%, #00e87b 100%);
+  color: #0a0f1a;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 30px rgba(0, 232, 123, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  border: 1px solid rgba(0, 232, 123, 0.4);
+  color: #00e87b;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-outline:hover {
+  background: rgba(0, 232, 123, 0.1);
+  border-color: #00e87b;
+}
+
+/* セクションディバイダー */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 232, 123, 0.2), transparent);
+}
+
+/* アニメーション */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* タグ */
+.tag {
+  background: rgba(0, 232, 123, 0.1);
+  color: #00e87b;
+  border: 1px solid rgba(0, 232, 123, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* スクロールバー */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0f1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
 }

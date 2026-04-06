@@ -15,80 +15,83 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="py-20 bg-gradient-to-b from-green-50 to-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center">
+      <section className="py-24 sm:py-32 relative grid-pattern">
+        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-[#00e87b]/5 rounded-full blur-[120px]" />
+        <div className="relative max-w-4xl mx-auto px-4 text-center">
+          <p className="text-[#00e87b] text-sm font-bold tracking-widest uppercase mb-3">About</p>
+          <h1 className="text-3xl sm:text-5xl font-bold text-white">
             会社概要
           </h1>
-          <p className="mt-4 text-gray-600 text-center">
+          <p className="mt-4 text-[#94a3b8]">
             根本的課題に向き合い、事業の大樹を育てる
           </p>
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <div className="section-divider" />
+
+      <section className="py-20">
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">基本情報</h2>
-          <dl className="divide-y divide-gray-100">
+          <p className="text-[#00e87b] text-sm font-bold tracking-widest uppercase mb-3">Company Info</p>
+          <h2 className="text-2xl font-bold text-white mb-8">基本情報</h2>
+          <div className="card-dark rounded-xl overflow-hidden">
             {[
               ["会社名", "株式会社Arboris（アーボリス）"],
               ["設立", "2025年11月5日"],
               ["代表取締役", "井上 大樹"],
               ["所在地", "東京都新宿区四谷坂町"],
-              [
-                "事業内容",
-                "受託開発 / DXコンサルティング / AI導入支援 / 自社プロダクト開発",
-              ],
+              ["事業内容", "受託開発 / DXコンサルティング / AI導入支援 / 自社プロダクト開発"],
               ["対応エリア", "全国対応（オンライン可）"],
-            ].map(([label, value]) => (
+            ].map(([label, value], i) => (
               <div
                 key={label}
-                className="py-4 sm:grid sm:grid-cols-3 sm:gap-4"
+                className={`px-8 py-5 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 ${
+                  i > 0 ? "border-t border-white/5" : ""
+                }`}
               >
-                <dt className="text-sm font-bold text-gray-900">{label}</dt>
-                <dd className="mt-1 text-sm text-gray-700 sm:col-span-2 sm:mt-0">
-                  {value}
-                </dd>
+                <dt className="text-sm font-bold text-[#00e87b] sm:w-36 shrink-0">{label}</dt>
+                <dd className="text-sm text-[#e2e8f0]">{value}</dd>
               </div>
             ))}
-          </dl>
+          </div>
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
+      <div className="section-divider" />
+
+      <section className="py-20">
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">
-            企業理念
-          </h2>
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-lg font-bold text-green-700 mb-2">MISSION</h3>
-              <p className="text-gray-700">
+          <p className="text-[#00e87b] text-sm font-bold tracking-widest uppercase mb-3">Philosophy</p>
+          <h2 className="text-2xl font-bold text-white mb-8">企業理念</h2>
+          <div className="space-y-6">
+            <div className="card-dark rounded-xl p-8">
+              <div className="text-[#00e87b] text-sm font-bold tracking-widest uppercase mb-3">Mission</div>
+              <p className="text-[#e2e8f0] leading-relaxed">
                 現場に寄り添い、本質的課題を解決するシステムとAIを届けること。
                 表面的な解決策ではなく、根（本質的課題）に向き合い、
                 お客様の事業が長期的に成長する基盤を構築します。
               </p>
             </div>
-            <div>
-              <h3 className="text-lg font-bold text-green-700 mb-2">VISION</h3>
-              <p className="text-gray-700">
+            <div className="card-dark rounded-xl p-8">
+              <div className="text-[#00e87b] text-sm font-bold tracking-widest uppercase mb-3">Vision</div>
+              <p className="text-[#e2e8f0] leading-relaxed">
                 すべての産業に、テクノロジーの根を張る。
                 製造・物流・建設・飲食——あらゆる現場にデジタルの力を届け、
                 産業の未来を共に創ります。
               </p>
             </div>
             <div>
-              <h3 className="text-lg font-bold text-green-700 mb-2">VALUES</h3>
-              <div className="grid grid-cols-2 gap-4 mt-4">
+              <div className="text-[#00e87b] text-sm font-bold tracking-widest uppercase mb-4 px-1">Values</div>
+              <div className="grid grid-cols-2 gap-4">
                 {[
                   { title: "現場第一", desc: "現場を知らずして、良い仕組みは作れない" },
                   { title: "本質直視", desc: "表面的な症状ではなく、根本原因を見る" },
                   { title: "共創", desc: "お客様と共に考え、共に作る" },
                   { title: "誠実", desc: "できないことはできないと言う" },
                 ].map((v) => (
-                  <div key={v.title} className="bg-white p-4 rounded-lg shadow-sm">
-                    <h4 className="font-bold text-gray-900">{v.title}</h4>
-                    <p className="text-sm text-gray-600 mt-1">{v.desc}</p>
+                  <div key={v.title} className="card-dark rounded-xl p-6">
+                    <h4 className="font-bold text-white mb-1">{v.title}</h4>
+                    <p className="text-sm text-[#94a3b8]">{v.desc}</p>
                   </div>
                 ))}
               </div>
