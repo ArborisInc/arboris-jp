@@ -20,7 +20,7 @@ export default function NoticeBanner() {
       >
         <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-[#CCD6F6]">
           <AlertTriangle size={16} className="shrink-0 text-amber-400" />
-          <span className="text-amber-400 font-medium">重要なお知らせ（2026年11月2日）：</span>
+          <span className="text-amber-400 font-medium">重要なお知らせ（2026年11月16日）：</span>
           <span>
             当社名義の求人情報および「arboris-jet.vercel.app」は当社と一切関係ありません。
           </span>
